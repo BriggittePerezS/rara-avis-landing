@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa KISMET | Rara Avis Homes</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#020617',
+                        'neon-cyan': '#00e5ff',
+                        'sky-accent': '#38bdf8',
+                    },
+                    fontFamily: {
+                        'brand': ['Montserrat', 'sans-serif'],
+                        'serif-title': ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #020617;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .nav-exact-gradient {
+            background: linear-gradient(to bottom, #29b1ec 0%, #51c6f3 100%);
+        }
+
+        .btn-rara-cyan {
+            background-color: #00e5ff;
+            color: #020617;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .btn-rara-cyan:hover {
+            background-color: #33ecff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 229, 255, 0.6);
+        }
+
+        .btn-rara-outline {
+            background-color: rgba(2, 6, 23, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-rara-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.6);
+            color: #00e5ff;
+            transform: translateY(-2px);
+        }
+
+        .glass-card {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cyan-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+        }
+
+        .floating-whatsapp {
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .hero-image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-image-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.1);
+            pointer-events: none;
+            filter: brightness(0.9);
+        }
+
+        .snap-carousel::-webkit-scrollbar { display: none; }
+        .snap-carousel { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        .snap-item { scroll-snap-align: center; }
+
+        .carousel-img-wrapper {
+            overflow: hidden;
+            display: inline-block;
+            max-width: 100%;
+            max-height: 65vh;
+            border-radius: 2.5rem;
+        }
+        .carousel-bg-slide {
+            display: block;
+            max-width: 100%;
+            max-height: 65vh;
+            height: auto;
+            object-fit: contain;
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(1);
+            will-change: transform;
+            margin: 0 auto;
+            border-radius: 2.5rem;
+        }
+    </style>
+
+    <script>
+        function loadMetaPixel() {
+            if (window.metaPixelLoaded) return;
+            window.metaPixelLoaded = true;
+
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            
+            fbq('init', '1022888083980460');
+            fbq('track', 'PageView');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const consent = localStorage.getItem("cookieConsentStatus");
+            if (consent === "accepted") {
+                loadMetaPixel();
+            } else if (!consent) {
+                document.getElementById("cookie-modal").classList.remove("hidden");
+            }
+        });
+
+        function acceptAllCookies() {
+            localStorage.setItem("cookieConsentStatus", "accepted");
+            document.getElementById("cookie-modal").classList.add("hidden");
+            loadMetaPixel();
+        }
+
+        function rejectAllCookies() {
+            localStorage.setItem("cookieConsentStatus", "rejected");
+            document.getElementById("cookie-modal").classList.add("hidden");
+        }
+
+        function toggleConfigure() {
+            const configPanel = document.getElementById("cookie-config-panel");
+            configPanel.classList.toggle("hidden");
+        }
+    </script>
+</head>
+<body id="inicio" class="selection:bg-neon-cyan selection:text-dark-bg font-brand">
+
+    <div id="cookie-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-card text-slate-200 w-full max-w-xl p-6 md:p-8 rounded-[2rem] shadow-2xl border border-white/10 relative overflow-hidden">
+            
+            <h2 class="text-xl md:text-2xl font-normal text-white mb-4 font-serif-title">Aviso de Cookies</h2>
+            
+            <div class="space-y-3 text-xs text-slate-300 leading-relaxed font-light mb-6">
+                <p>
+                    En Rara Avis Homes utilizamos cookies propias y de terceros con fines strictly funcionales, analíticos, así como con el objetivo de ofrecerte una buena experiencia de usuario y mostrarte contenidos comerciales adaptados a tus intereses a partir de tus hábitos de navegación.
+                </p>
+                <p>
+                    Puedes aceptar o rechazar las cookies en los botones correspondientes.
+                </p>
+                <p class="text-[11px]">
+                    Para más información puedes visitar nuestra <a href="#" class="text-sky-accent underline hover:text-neon-cyan transition-colors">política de cookies</a>.
+                </p>
+                <p class="text-[11px] text-slate-400">
+                    Si rechazas, no se hará seguimiento de tu información cuando visites este sitio web. Se usará una sola cookie en tu navegador para recordar tu preferencia de que no se te haga seguimiento.
+                </p>
+            </div>
+
+            <div id="cookie-config-panel" class="hidden mb-6 p-4 rounded-xl bg-white/5 border border-white/10 space-y-3 text-xs">
+                <div class="flex items-center justify-between">
+                    <span class="text-white font-medium">Cookies esenciales (Técnicas)</span>
+                    <span class="text-sky-accent font-semibold text-[10px]">Siempre activas</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-slate-300 font-medium">Cookies de análisis y marketing</span>
+                    <span class="text-slate-400 text-[10px]">Gestionadas mediante consentimiento</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-white/10">
+                <button onclick="toggleConfigure()" class="w-full sm:w-auto text-slate-400 hover:text-white text-[11px] uppercase tracking-wider font-semibold py-3 px-4 transition-colors text-center">
+                    Configurar
+                </button>
+                <div class="grid grid-cols-2 gap-3 w-full sm:w-auto sm:ml-auto">
+                    <button onclick="rejectAllCookies()" class="w-full bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold py-3 px-6 rounded-full text-xs tracking-wider uppercase transition-colors border border-white/10 text-center">
+                        Rechazar
+                    </button>
+                    <button onclick="acceptAllCookies()" class="w-full btn-rara-cyan py-3 px-6 text-xs tracking-[0.15em] uppercase text-center shadow-lg">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        if (localStorage.getItem("cookieConsentStatus") === "accepted") {
+            document.write('<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1022888083980460&ev=PageView&noscript=1"/></noscript>');
+        }
+    </script>
+
+    <!-- Menú de navegación actualizado para reducirse uniformemente con el zoom -->
+    <nav class="fixed w-full z-[100] nav-exact-gradient shadow-2xl py-3 px-4 md:px-12 flex items-center justify-between">
+        <div class="flex items-center w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+            <a href="index.html" class="w-full h-full flex items-center justify-center">
+                <img src="img/logo.png" alt="Rara Avis Homes Logo" class="w-full h-full object-contain scale-110">
+            </a>
+        </div>
+
+        <div class="flex flex-col items-center justify-center text-center mx-auto">
+            <a href="index.html" class="flex flex-col items-center justify-center">
+                <span class="text-white text-base md:text-2xl font-normal tracking-[0.25em] uppercase whitespace-nowrap leading-none font-serif-title">
+                    RARA AVIS
+                </span>
+                <span class="text-white text-[9px] md:text-xs font-normal tracking-[0.45em] lowercase mt-1.5 whitespace-nowrap font-brand">
+                    homes
+                </span>
+            </a>
+        </div>
+
+        <div class="flex items-center flex-shrink-0">
+            <a href="index.html" class="btn-rara-outline px-4 md:px-6 py-2.5 md:py-3 text-[10px] md:text-xs tracking-widest uppercase">
+                INICIO
+            </a>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/34641984686?text=%C2%A1Hola%21+Quiero+m%C3%A1s+informaci%C3%B3n+sobre+Villa+KISMET." target="_blank" onclick="if (typeof fbq === 'function') { fbq('track', 'Contact'); }" class="fixed bottom-6 right-6 z-[120] bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl floating-whatsapp flex items-center justify-center group" aria-label="WhatsApp">
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-dark-bg">1</span>
+    </a>
+
+    <section class="relative min-h-screen flex items-end pb-16 pt-24 md:pt-36 px-6 md:px-16 overflow-hidden">
+        <div class="hero-image-background">
+            <img src="img-kismet/fachada-delantera.png" alt="Villa Kismet Fachada Delantera">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-dark-bg/30 z-10 pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto w-full text-center md:text-left" data-aos="fade-up">
+            <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-normal uppercase text-white tracking-[0.05em] mb-4 leading-tight">
+                VILLA KISMET<br>
+                UN NUEVO ESTÁNDAR<br>
+                <span class="font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-sky-300">DE LUJO MEDITERRÁNEO</span>
+            </h1>
+            <p class="text-slate-300 text-xs sm:text-sm md:text-xl font-light max-w-2xl mb-8 leading-relaxed tracking-wide">
+                Una colección de villas de autor con vistas panorámicas al mar, arquitectura de vanguardia y privacidad absoluta.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <a href="#contacto-villa" class="btn-rara-outline px-8 py-4 text-xs tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 w-full sm:w-auto">
+                    CONTACTO DIRECTO <span class="text-base leading-none">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="cyan-divider"></div>
+
+    <section class="max-w-6xl mx-auto px-6 py-8" data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <a href="villa-ukiyo.html" class="btn-rara-cyan py-4 px-6 text-xs tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 shadow-lg">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Villa Ukiyo
+            </a>
+            <a href="villa-xodo.html" class="btn-rara-cyan py-4 px-6 text-xs tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 shadow-lg">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Villa Xodó
+            </a>
+        </div>
+    </section>
+
+    <div class="cyan-divider mb-8"></div>
+
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-16 flex flex-col lg:flex-row items-start gap-12 relative">
+
+        <div class="w-full lg:w-[calc(100%-460px)] space-y-24">
+            
+            <section id="detalles" class="text-left pt-6" data-aos="fade-up">
+                <span class="text-sky-accent text-xs tracking-[0.3em] font-semibold uppercase block mb-4">Villa Kismet en Jávea</span>
+                <h2 class="text-2xl md:text-4xl font-normal uppercase tracking-[0.05em] text-white mb-6 leading-snug">
+                    ARQUITECTURA Y ESTILO DE VIDA<br>
+                    <span class="font-light text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-300 to-white">EN EL LITORAL DE JÁVEA | 2.300.000 €</span>
+                </h2>
+                <div class="space-y-4 text-slate-300 text-sm md:text-base font-light leading-relaxed tracking-wide">
+                    <p>En el sector residencial de alta gama, el diseño y el estilo de vida convergen de manera natural en aquellos enclaves que definen una forma única de habitar el litoral. En este sentido, Villa Kismet se posiciona como una de las propuestas más singulares en Jávea.</p>
+                    <p>Con una superficie construida de 388,71 m² sobre una parcela privada de 1.000 m², esta residencia ofrece una distribución fluida y funcional que comprende 5 dormitorios en suite y 5 baños, ideada para garantizar la máxima comodidad e independencia en el día a día.</p>
+                    <p>La atmósfera serena que se respira en cada rincón de la casa invita al bienestar. Sus espacios principales dialogan de forma directa con el exterior, abriéndose hacia un jardín privado y una piscina orientados a enmarcar las excepcionales vistas al mar Mediterráneo, consolidándose como un hogar proyectado para disfrutar plenamente del entorno costero.</p>
+                </div>
+            </section>
+
+            <section class="w-full">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto" data-aos="fade-up">
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Tipo</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Villa</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Localidad</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Jávea</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Dormitorios</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Baños</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Construido m²</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">388,71</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Parcela m²</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">1.000</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Piscina</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Jardín</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Garaje</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Año construcción</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">2.024</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Orientación</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">S</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de la Galería adaptada -->
+            <section class="space-y-6" data-aos="fade-up">
+                <div>
+                    <span class="text-sky-accent text-xs tracking-[0.3em] font-semibold uppercase block mb-1">GALERÍA DE LA VILLA</span>
+                </div>
+
+                <div class="p-2 md:p-4 relative">
+                    
+                    <div class="relative w-full flex items-center justify-center group">
+                        
+                        <!-- Botón Anterior Sobrepuesto a la Izquierda -->
+                        <button onclick="scrollPrev()" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-dark-bg/70 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto anterior">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+
+                        <!-- Botón Siguiente Sobrepuesto a la Derecha -->
+                        <button onclick="scrollNext()" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-dark-bg/70 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto siguiente">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+
+                        <div id="modern-scroll-container" class="snap-carousel flex overflow-x-auto w-full scroll-smooth items-center">
+                            <!-- Las diapositivas se inyectan dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="mt-6 px-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-2">
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-normal uppercase text-white font-serif-title mb-1" id="scroll-carousel-title">SALÓN COMEDOR</h3>
+                            <p id="scroll-carousel-desc" class="text-slate-300 text-xs md:text-sm font-light leading-relaxed m-0 max-w-3xl"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4 pt-4" data-aos="fade-up">
+                <div class="space-y-1 text-left">
+                    <span class="text-sky-accent text-[10px] font-bold tracking-[0.3em] uppercase block">Villa Kismet en Jávea</span>
+                    <h3 class="text-lg md:text-xl font-normal uppercase text-white tracking-[0.05em]">Situada en Jávea, Alicante</h3>
+                </div>
+                <div class="rounded-2xl overflow-hidden glass-card h-[300px] w-full border border-white/10 shadow-xl relative">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: contrast(1.1) saturate(0.8);" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24974.770950346857!2d0.1650!3d38.7900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129dc21e6c80c2f7%3A0x40df8d7950209f0!2s03730%20J%C3%A1vea%2C%20Alicante!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses">
+                    </iframe>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="contacto-villa" class="w-full lg:w-[420px] lg:sticky lg:top-28 z-40 mt-8 lg:mt-0">
+            <div class="glass-card p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden border border-white/10" data-aos="fade-left">
+                
+                <div class="text-center mb-6 pb-6 border-b border-white/10">
+                    <span class="text-slate-400 text-[10px] font-semibold tracking-[0.25em] uppercase block mb-2">CONTACTE CON NOSOTROS</span>
+                    <h3 class="text-lg md:text-xl font-normal uppercase text-white tracking-[0.05em] font-serif-title mb-2">Rara Avis Homes</h3>
+                    <div class="flex flex-col items-center gap-1 mt-2">
+                        <a href="tel:+34641984686" class="text-sky-accent text-xs font-bold tracking-wider hover:underline">+34 641 98 46 86</a>
+                        <a href="mailto:anamaria@raraavishomes.com" class="text-slate-300 text-xs hover:text-neon-cyan transition-colors">anamaria@raraavishomes.com</a>
+                    </div>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <input type="hidden" name="access_key" value="6ee05328-7787-401b-9229-ea62fe657fd4">
+                    <input type="hidden" name="Inmueble_Interes" value="Villa KISMET - Jávea (Ref: JV837)">
+                    <input type="hidden" name="redirect" value="https://www.raraavishomes.com/gracias-villa.html">
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Nombre completo</label>
+                        <input type="text" name="Nombre" required placeholder="Tu nombre..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Email</label>
+                        <input type="email" name="Email" required placeholder="Tu correo electrónico..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Teléfono</label>
+                        <input type="tel" name="Teléfono" required placeholder="Tu teléfono..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
+                    </div>
+
+                    <button type="submit" class="w-full btn-rara-cyan py-4 rounded-full font-bold tracking-[0.15em] uppercase text-xs shadow-lg mt-2">
+                        ENVIAR MENSAJE
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cyan-divider my-8"></div>
+
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4">
+            <a href="#inicio" class="text-sky-accent hover:underline uppercase tracking-widest text-xs font-bold transition-all duration-300 hover:-translate-y-1 inline-flex items-center gap-1">
+                ↑ Volver Arriba
+            </a>
+            <p class="text-[10px] tracking-widest text-slate-600 uppercase font-semibold">
+                © <span id="current-year"></span> Rara Avis Homes. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const slides = [
+            { src: "img-kismet/salon-comedor.png", title: "SALÓN COMEDOR", desc: "Amplio espacio diáfano diseñado para maximizar la luz natural, integrado con la cocina y con vistas directas al exterior." },
+            { src: "img-kismet/cocina.png", title: "COCINA", desc: "Cocina moderna totalmente equipada con isla central y acabados de lujo." },
+            { src: "img-kismet/terraza.png", title: "TERRAZA", desc: "Zona exterior cubierta ideal para el descanso y el disfrute del clima mediterráneo." },
+            { src: "img-kismet/fachada-trasera.png", title: "FACHADA TRASERA", desc: "Perspectiva posterior de la villa que conecta directamente con el área de la piscina y the jardín." },
+            { src: "img-kismet/fachada-trasera-piscina.png", title: "FACHADA TRASERA Y PISCINA", desc: "Espectacular piscina integrada con vistas panorámicas y zona solárium." },
+            { src: "img-kismet/dormitorio-principal.png", title: "DORMITORIO PRINCIPAL", desc: "Habitación principal tipo suite con diseño exclusivo, máxima privacidad y acabados de lujo." },
+            { src: "img-kismet/bano-dormitorio-principal.png", title: "BAÑO DORMITORIO PRINCIPAL", desc: "Baño en suite exclusivo vinculado al dormitorio principal con calidades prémium." },
+            { src: "img-kismet/dormitorio2.png", title: "SEGUNDO DORMITORIO", desc: "Habitación secundaria amplia, luminosa y perfectamente equipada en suite." },
+            { src: "img-kismet/bano.png", title: "BAÑO", desc: "Diseño elegante y moderno con sanitarios y grifería de alta gama." }
+        ];
+
+        let currentIndex = 0;
+        const container = document.getElementById('modern-scroll-container');
+        const titleEl = document.getElementById('scroll-carousel-title');
+        const descEl = document.getElementById('scroll-carousel-desc');
+
+        slides.forEach((slide, idx) => {
+            const item = document.createElement('div');
+            item.className = `snap-item min-w-full w-full flex-shrink-0 flex items-center justify-center p-2 ${idx === 0 ? 'active-slide' : ''}`;
+            item.innerHTML = `
+                <div class="carousel-img-wrapper">
+                    <img src="${encodeURI(slide.src)}" alt="${slide.title}" class="carousel-bg-slide">
+                </div>
+            `;
+            container.appendChild(item);
+        });
+
+        function updateUI(index) {
+            currentIndex = index;
+            titleEl.textContent = slides[currentIndex].title;
+            descEl.textContent = slides[currentIndex].desc;
+
+            const items = container.children;
+            for (let i = 0; i < items.length; i++) {
+                if (i === currentIndex) {
+                    items[i].classList.add('active-slide');
+                } else {
+                    items[i].classList.remove('active-slide');
+                }
+            }
+        }
+
+        function scrollToSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            
+            const targetItem = container.children[index];
+            container.scrollTo({
+                left: targetItem.offsetLeft,
+                behavior: 'smooth'
+            });
+            updateUI(index);
+        }
+
+        function scrollNext() { scrollToSlide(currentIndex + 1); }
+        function scrollPrev() { scrollToSlide(currentIndex - 1); }
+
+        let scrollTimeout;
+        container.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const index = Math.round(container.scrollLeft / container.clientWidth);
+                if (index !== currentIndex && index >= 0 && index < slides.length) {
+                    updateUI(index);
+                }
+            }, 50);
+        });
+
+        updateUI(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por contactar | Rara Avis Homes</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#020617',
+                        'neon-cyan': '#00e5ff',
+                        'sky-accent': '#38bdf8',
+                    },
+                    fontFamily: {
+                        'brand': ['Montserrat', 'sans-serif'],
+                        'serif-title': ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #020617;
+            color: white;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        h1, h2, .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .nav-exact-gradient {
+            background: linear-gradient(to bottom, #29b1ec 0%, #51c6f3 100%);
+        }
+        .btn-rara-cyan {
+            background-color: #00e5ff;
+            color: #020617;
+            font-weight: 700;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+        }
+        .btn-rara-cyan:hover {
+            background-color: #33ecff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 229, 255, 0.6);
+        }
+        .glass-card {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
+    <!-- META PÍXEL & DISPARO DE EVENTO LEAD -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '1022888083980460');
+        fbq('track', 'PageView');
+
+        // Disparo del Lead al cargar esta página de éxito
+        if (typeof fbq === 'function') { 
+            fbq('track', 'Lead'); 
+        }
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1022888083980460&ev=PageView&noscript=1"/></noscript>
+</head>
+<body class="selection:bg-neon-cyan selection:text-dark-bg">
+
+    <nav class="w-full nav-exact-gradient shadow-2xl h-24 flex items-center justify-center px-4">
+        <a href="index.html" class="flex flex-col items-center justify-center text-center">
+            <span class="text-white text-xl font-normal tracking-[0.25em] uppercase leading-none font-serif-title">
+                RARA AVIS
+            </span>
+            <span class="text-white text-[10px] font-normal tracking-[0.45em] lowercase mt-1.5 font-brand">
+                homes
+            </span>
+        </a>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-16">
+        <div class="glass-card max-w-xl w-full p-8 md:p-12 rounded-[2.5rem] text-center shadow-2xl border border-white/10">
+            <div class="w-16 h-16 bg-neon-cyan/10 border border-neon-cyan/40 rounded-full flex items-center justify-center mx-auto mb-6 text-neon-cyan">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-normal uppercase text-white tracking-[0.05em] mb-4 font-serif-title">
+                ¡Mensaje Enviado con Éxito!
+            </h1>
+            
+            <p class="text-slate-300 text-sm font-light leading-relaxed mb-8">
+                Hemos recibido su solicitud de información correctamente. Uno de nuestros asesores expertos se pondrá en contacto con usted a la mayor brevedad posible.
+            </p>
+
+            <a href="index.html" class="inline-block btn-rara-cyan py-4 px-8 text-xs tracking-[0.15em] uppercase">
+                VOLVER AL INICIO
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+        <p class="text-[10px] tracking-widest text-slate-600 uppercase font-semibold">
+            © <span id="current-year"></span> Rara Avis Homes. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
