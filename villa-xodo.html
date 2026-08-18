@@ -28,30 +28,97 @@
     </script>
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #020617; color: white; margin: 0; overflow-x: hidden; }
-        h1, h2, h3, .font-serif-title { font-family: 'Cinzel', serif; }
-        .nav-exact-gradient { background: linear-gradient(to bottom, #29b1ec 0%, #51c6f3 100%); }
-        @media (min-width: 768px) { .nav-center-title { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); } }
-        .btn-rara-cyan { background-color: #00e5ff; color: #020617; font-family: 'Montserrat', sans-serif; font-weight: 700; border-radius: 9999px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4); }
-        .btn-rara-cyan:hover { background-color: #33ecff; transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 229, 255, 0.6); }
-        .btn-rara-outline { background-color: rgba(2, 6, 23, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 600; border-radius: 9999px; transition: all 0.3s ease; }
-        .btn-rara-outline:hover { background-color: rgba(255, 255, 255, 0.1); border-color: rgba(0, 229, 255, 0.6); color: #00e5ff; transform: translateY(-2px); }
-        .glass-card { background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .cyan-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent); }
-        .floating-whatsapp { animation: pulse-ring 2s infinite; }
-        @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-        
-        .hero-image-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            border-radius: 1.5rem;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #020617;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
         }
-        .hero-image-background img {
+
+        h1, h2, h3, .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .nav-exact-gradient {
+            background: linear-gradient(to bottom, #29b1ec 0%, #51c6f3 100%);
+        }
+
+        @media (min-width: 768px) {
+            .nav-center-title {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .btn-rara-cyan {
+            background-color: #00e5ff;
+            color: #020617;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .btn-rara-cyan:hover {
+            background-color: #33ecff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 229, 255, 0.6);
+        }
+
+        .btn-rara-outline {
+            background-color: rgba(2, 6, 23, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-rara-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.6);
+            color: #00e5ff;
+            transform: translateY(-2px);
+        }
+
+        .glass-card {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cyan-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+        }
+
+        .floating-whatsapp {
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .video-background img {
             width: 100vw;
             height: 100vh;
             object-fit: cover;
@@ -61,9 +128,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             pointer-events: none;
-            border-radius: 1.5rem;
         }
-        
+
         .snap-carousel::-webkit-scrollbar { display: none; }
         .snap-carousel { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .snap-item { scroll-snap-align: center; }
@@ -97,26 +163,38 @@
                 <img src="img/logo.png" alt="Rara Avis Homes Logo" class="w-full h-full object-contain scale-110">
             </a>
         </div>
+
         <div class="nav-center-title flex flex-col items-center justify-center text-center">
             <a href="index.html" class="flex flex-col items-center justify-center">
-                <span class="text-white text-lg md:text-2xl font-normal tracking-[0.25em] uppercase whitespace-nowrap leading-none font-serif-title">RARA AVIS</span>
-                <span class="text-white text-[10px] md:text-xs font-normal tracking-[0.45em] lowercase mt-1.5 whitespace-nowrap font-brand">homes</span>
+                <span class="text-white text-lg md:text-2xl font-normal tracking-[0.25em] uppercase whitespace-nowrap leading-none font-serif-title">
+                    RARA AVIS
+                </span>
+                <span class="text-white text-[10px] md:text-xs font-normal tracking-[0.45em] lowercase mt-1.5 whitespace-nowrap font-brand">
+                    homes
+                </span>
             </a>
         </div>
+
         <div class="flex items-center gap-3 flex-shrink-0">
-            <a href="index.html" class="btn-rara-outline px-6 py-3 text-[11px] md:text-xs tracking-widest uppercase">INICIO</a>
+            <a href="index.html" class="btn-rara-outline px-6 py-3 text-[11px] md:text-xs tracking-widest uppercase">
+                INICIO
+            </a>
         </div>
     </nav>
 
     <a href="https://wa.me/34641984686?text=%C2%A1Hola%21+Quiero+m%C3%A1s+informaci%C3%B3n+sobre+Casa+Xod%C3%B3." target="_blank" class="fixed bottom-6 right-6 z-[120] bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl floating-whatsapp flex items-center justify-center group" aria-label="WhatsApp">
-        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-dark-bg">1</span>
     </a>
 
     <section class="relative min-h-screen flex items-end pb-16 pt-24 md:pt-36 px-6 md:px-16 overflow-hidden">
-        <div class="hero-image-background">
-            <img src="img-xodo/fachada trasera piscina.png" alt="Casa Xodó Fachada Trasera Piscina" onerror="this.onerror=null; this.src='img-xodo/fachada trasera piscina.jpg';">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-dark-bg/30 z-10 pointer-events-none rounded-[1.5rem]"></div>
+        <div class="video-background z-0 pointer-events-none">
+            <img src="img-xodo/fachada trasera piscina.png" alt="Casa Xodó Fachada Trasera Piscina" onerror="this.onerror=null; this.src='img-xodo/fachada trasera piscina.jpg';" class="pointer-events-none select-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-dark-bg/30 z-10 pointer-events-none"></div>
         </div>
+
         <div class="relative z-10 max-w-5xl mx-auto w-full text-center md:text-left" data-aos="fade-up">
             <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-normal uppercase text-white tracking-[0.05em] mb-4 leading-tight">
                 VILLA XODÓ<br>
@@ -125,8 +203,11 @@
             <p class="text-slate-300 text-xs sm:text-sm md:text-xl font-light max-w-2xl mb-8 leading-relaxed tracking-wide">
                 Serenidad mediterránea y exclusividad en una residencia de lujo pensada para el confort absoluto.
             </p>
+
             <div class="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#contacto-villa" class="btn-rara-outline px-8 py-4 text-xs tracking-[0.15em] uppercase text-center w-full sm:w-auto">CONTACTO DIRECTO →</a>
+                <a href="#contacto-villa" class="btn-rara-outline px-8 py-4 text-xs tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 w-full sm:w-auto">
+                    CONTACTO DIRECTO <span class="text-base leading-none">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -134,13 +215,15 @@
     <div class="cyan-divider"></div>
 
     <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-16 flex flex-col lg:flex-row items-start gap-12 relative">
+
         <div class="w-full lg:w-[calc(100%-460px)] space-y-24">
             
-            <section class="pt-2" data-aos="fade-up">
-                <span class="text-sky-accent text-xs tracking-[0.3em] font-semibold uppercase block mb-3">EXCLUSIVIDAD Y DISEÑO</span>
-                <h2 class="text-2xl md:text-4xl font-normal uppercase tracking-[0.05em] text-white mb-6 leading-snug">Casa Xodó en Jávea<br><span class="font-light text-slate-300">Arquitectura contemporánea y serenidad mediterránea | 2.500.000 €</span></h2>
-                
-                <div class="space-y-6 text-slate-300 text-sm md:text-base font-light leading-relaxed tracking-wide mb-10">
+            <section id="detalles" class="text-left pt-6" data-aos="fade-up">
+                <span class="text-sky-accent text-xs tracking-[0.3em] font-semibold uppercase block mb-4">EXCLUSIVIDAD Y DISEÑO</span>
+                <h2 class="text-2xl md:text-4xl font-normal uppercase tracking-[0.05em] text-white mb-6 leading-snug">
+                    Casa Xodó en Jávea<br><span class="font-light text-slate-300">Arquitectura contemporánea y serenidad mediterránea | 2.500.000 €</span>
+                </h2>
+                <div class="space-y-6 text-slate-300 text-sm md:text-base font-light leading-relaxed tracking-wide mb-8">
                     <p>
                         Dentro del mercado residencial de alta gama, existen propiedades que logran capturar la esencia de un estilo de vida elevado sin perder su calidez. Casa Xodó se presenta en Jávea como una villa de líneas contemporáneas donde la amplitud y el confort definen cada estancia, pensada para quienes buscan una residencia —ya sea habitual o vacacional— que combine el diseño más sofisticado con la practicidad del día a día.
                     </p>
@@ -151,53 +234,53 @@
                         La villa combina altas calidades con una tecnología intuitiva: domótica avanzada, climatización por aerotermia y acabados de primer nivel que facilitan el mantenimiento y el confort diario. Sus zonas exteriores, con piscina privada, área de barbacoa y espacios pensados para el ocio, completan un entorno listo para disfrutar del clima mediterráneo sin renunciar a nada.
                     </p>
                 </div>
+            </section>
 
-                <div class="w-full">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto" data-aos="fade-up">
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Tipo</span>
-                            <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Villa</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Localidad</span>
-                            <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Jávea</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Dormitorios</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Baños</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Construidos</span>
-                            <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">388,71 m²</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Parcela</span>
-                            <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">1.000 m²</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Piscina</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Jardín</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Garaje</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Año Construcción</span>
-                            <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">2.024</span>
-                        </div>
-                        <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
-                            <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Orientación</span>
-                            <span class="text-3xl font-normal tracking-wider text-white font-serif-title">S</span>
-                        </div>
+            <section class="w-full">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto" data-aos="fade-up">
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Tipo</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Villa</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Localidad</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">Jávea</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Dormitorios</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Baños</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">5</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Construidos</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">388,71 m²</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Parcela</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">1.000 m²</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Piscina</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Jardín</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Garaje</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">Sí</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Año Construcción</span>
+                        <span class="text-xl md:text-2xl font-normal tracking-wider text-white font-serif-title">2.024</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl text-center border-white/10 hover:border-neon-cyan/40 transition-colors">
+                        <span class="text-sky-accent text-[10px] font-bold tracking-widest uppercase block mb-1">Orientación</span>
+                        <span class="text-3xl font-normal tracking-wider text-white font-serif-title">S</span>
                     </div>
                 </div>
             </section>
@@ -208,14 +291,15 @@
                 </div>
 
                 <div class="p-2 md:p-4 relative">
+                    
                     <div class="relative w-full flex items-center justify-center group">
                         
-                        <button onclick="scrollPrev()" class="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-dark-bg/75 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-2xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto anterior">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                        <button onclick="scrollPrev()" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-dark-bg/70 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto anterior">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                         </button>
 
-                        <button onclick="scrollNext()" class="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-dark-bg/75 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-2xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto siguiente">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        <button onclick="scrollNext()" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-dark-bg/70 backdrop-blur-md border border-white/20 text-neon-cyan flex items-center justify-center shadow-xl hover:bg-dark-bg/90 hover:scale-110 transition active:scale-95 focus:outline-none" aria-label="Foto siguiente">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                         </button>
 
                         <div id="modern-scroll-container" class="snap-carousel flex overflow-x-auto w-full scroll-smooth items-center">
@@ -231,66 +315,75 @@
                 </div>
             </section>
 
-            <section class="pt-8 space-y-6" data-aos="fade-up">
-                <div>
-                    <span class="text-sky-accent text-xs tracking-[0.3em] font-semibold uppercase block mb-3">Ubicación Exclusiva</span>
-                    <h2 class="text-xl md:text-3xl font-normal uppercase text-white font-serif-title mb-4">SITUADA EN JÁVEA, ALICANTE</h2>
-                    <p class="text-slate-300 text-xs md:text-sm font-light leading-relaxed mb-6">
-                        Ubicada en un entorno natural privilegiado, rodeada de vegetación autóctona para garantizar absoluta privacidad y serenidad.
-                    </p>
+            <section class="space-y-4 pt-4" data-aos="fade-up">
+                <div class="space-y-1 text-left">
+                    <span class="text-sky-accent text-[10px] font-bold tracking-[0.3em] uppercase block">Villa Kismet en Xodó</span>
+                    <h3 class="text-lg md:text-xl font-normal uppercase text-white tracking-[0.05em]">Situada en Jávea, Alicante</h3>
                 </div>
-                <div class="glass-card p-4 rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
-                    <div class="w-full h-[400px] rounded-2xl overflow-hidden relative">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24955.51886196236!2d0.1658!3d38.7903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129ef9f753c1d9b3%3A0x40df8d7426bc120!2s03730%20J%C3%A1vea%2C%20Alicante!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class="w-full h-full">
-                        </iframe>
-                    </div>
+                <div class="rounded-2xl overflow-hidden glass-card h-[300px] w-full border border-white/10 shadow-xl relative">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: contrast(1.1) saturate(0.8);" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24974.770950346857!2d0.1650!3d38.7900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129dc21e6c80c2f7%3A0x40df8d7950209f0!2s03730%20J%C3%A1vea%2C%20Alicante!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses">
+                    </iframe>
                 </div>
             </section>
 
         </div>
 
-        <div id="contacto-villa" class="w-full lg:w-[420px] lg:sticky lg:top-28 z-40">
-            <div class="glass-card p-6 md:p-8 rounded-[2rem] shadow-2xl border border-white/10" data-aos="fade-left">
+        <div id="contacto-villa" class="w-full lg:w-[420px] lg:sticky lg:top-28 z-40 mt-8 lg:mt-0">
+            <div class="glass-card p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden border border-white/10" data-aos="fade-left">
+                
                 <div class="text-center mb-6 pb-6 border-b border-white/10">
                     <span class="text-slate-400 text-[10px] font-semibold tracking-[0.25em] uppercase block mb-2">CONTACTE CON NOSOTROS</span>
-                    <h3 class="text-lg md:text-xl font-normal uppercase text-white font-serif-title mb-2">RARA AVIS HOMES</h3>
-                    <a href="tel:+34641984686" class="text-sky-accent text-xs font-bold block mb-1">+34 641 98 46 86</a>
-                    <span class="text-slate-400 text-[11px]">anamaria@raraavishomes.com</span>
+                    <h3 class="text-lg md:text-xl font-normal uppercase text-white tracking-[0.05em] font-serif-title mb-2">Rara Avis Homes</h3>
+                    <div class="flex flex-col items-center gap-1 mt-2">
+                        <a href="tel:+34641984686" class="text-sky-accent text-xs font-bold tracking-wider hover:underline">+34 641 98 46 86</a>
+                        <a href="mailto:anamaria@raraavishomes.com" class="text-slate-300 text-xs hover:text-neon-cyan transition-colors">anamaria@raraavishomes.com</a>
+                    </div>
                 </div>
+
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                     <input type="hidden" name="access_key" value="6ee05328-7787-401b-9229-ea62fe657fd4">
                     <input type="hidden" name="Inmueble_Interes" value="Casa Xodó - 2.500.000 €">
-                    <div>
-                        <label class="block text-[10px] tracking-[0.2em] uppercase text-slate-400 mb-1.5 font-semibold">NOMBRE COMPLETO</label>
-                        <input type="text" name="Nombre" required placeholder="Tu nombre..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white">
+                    <input type="hidden" name="redirect" value="https://www.raraavishomes.com/gracias-villa.html">
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Nombre completo</label>
+                        <input type="text" name="Nombre" required placeholder="Tu nombre..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
                     </div>
-                    <div>
-                        <label class="block text-[10px] tracking-[0.2em] uppercase text-slate-400 mb-1.5 font-semibold">EMAIL</label>
-                        <input type="email" name="Email" required placeholder="Tu correo electrónico..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white">
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Email</label>
+                        <input type="email" name="Email" required placeholder="Tu correo electrónico..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
                     </div>
-                    <div>
-                        <label class="block text-[10px] tracking-[0.2em] uppercase text-slate-400 mb-1.5 font-semibold">TELÉFONO</label>
-                        <input type="tel" name="Teléfono" required placeholder="Tu teléfono..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white">
+
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-[9px] uppercase tracking-wider font-bold text-slate-300">Teléfono</label>
+                        <input type="tel" name="Teléfono" required placeholder="Tu teléfono..." class="w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-neon-cyan outline-none text-xs text-white transition-colors">
                     </div>
-                    <button type="submit" class="w-full btn-rara-cyan py-4 rounded-full font-bold tracking-[0.15em] uppercase text-xs shadow-lg mt-2">ENVIAR MENSAJE</button>
+
+                    <button type="submit" class="w-full btn-rara-cyan py-4 rounded-full font-bold tracking-[0.15em] uppercase text-xs shadow-lg mt-2">
+                        ENVIAR MENSAJE
+                    </button>
                 </form>
             </div>
         </div>
+
     </div>
+
+    <div class="cyan-divider my-8"></div>
 
     <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-xs">
         <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4">
-            <a href="#inicio" class="text-sky-accent hover:underline uppercase tracking-widest text-xs font-bold transition-all duration-300 hover:-translate-y-1 inline-flex items-center gap-1">↑ Volver arriba</a>
-            <p class="text-[10px] tracking-widest text-slate-600 uppercase font-medium">
-                &copy; 2026 Rara Avis Homes. Todos los derechos reservados.
+            <a href="#inicio" class="text-sky-accent hover:underline uppercase tracking-widest text-xs font-bold transition-all duration-300 hover:-translate-y-1 inline-flex items-center gap-1">
+                ↑ Volver Arriba
+            </a>
+            <p class="text-[10px] tracking-widest text-slate-600 uppercase font-semibold">
+                © <span id="current-year"></span> Rara Avis Homes. Todos los derechos reservados.
             </p>
         </div>
     </footer>
@@ -298,6 +391,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
         const slides = [
             { src: "img-xodo/baño.png", title: "BAÑO", desc: "Acabados de alta gama y diseño contemporáneo en estancias de baño." },

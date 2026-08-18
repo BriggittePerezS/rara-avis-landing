@@ -44,6 +44,15 @@
             background: linear-gradient(to bottom, #29b1ec 0%, #51c6f3 100%);
         }
 
+        @media (min-width: 768px) {
+            .nav-center-title {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
         .btn-rara-cyan {
             background-color: #00e5ff;
             color: #020617;
@@ -247,26 +256,26 @@
     </script>
 
     <!-- Menú de navegación actualizado para reducirse uniformemente con el zoom -->
-    <nav class="fixed w-full z-[100] nav-exact-gradient shadow-2xl py-3 px-4 md:px-12 flex items-center justify-between">
-        <div class="flex items-center w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+    <nav class="fixed w-full z-[100] nav-exact-gradient shadow-2xl h-24 flex items-center justify-between px-4 md:px-12">
+        <div class="flex items-center justify-center w-24 h-24 md:w-28 md:h-28 flex-shrink-0 ml-4 md:ml-12 overflow-hidden">
             <a href="index.html" class="w-full h-full flex items-center justify-center">
                 <img src="img/logo.png" alt="Rara Avis Homes Logo" class="w-full h-full object-contain scale-110">
             </a>
         </div>
 
-        <div class="flex flex-col items-center justify-center text-center mx-auto">
+        <div class="nav-center-title flex flex-col items-center justify-center text-center">
             <a href="index.html" class="flex flex-col items-center justify-center">
-                <span class="text-white text-base md:text-2xl font-normal tracking-[0.25em] uppercase whitespace-nowrap leading-none font-serif-title">
+                <span class="text-white text-lg md:text-2xl font-normal tracking-[0.25em] uppercase whitespace-nowrap leading-none font-serif-title">
                     RARA AVIS
                 </span>
-                <span class="text-white text-[9px] md:text-xs font-normal tracking-[0.45em] lowercase mt-1.5 whitespace-nowrap font-brand">
+                <span class="text-white text-[10px] md:text-xs font-normal tracking-[0.45em] lowercase mt-1.5 whitespace-nowrap font-brand">
                     homes
                 </span>
             </a>
         </div>
 
-        <div class="flex items-center flex-shrink-0">
-            <a href="index.html" class="btn-rara-outline px-4 md:px-6 py-2.5 md:py-3 text-[10px] md:text-xs tracking-widest uppercase">
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="index.html" class="btn-rara-outline px-6 py-3 text-[11px] md:text-xs tracking-widest uppercase">
                 INICIO
             </a>
         </div>
